@@ -1,0 +1,16 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: docker
+  image: plugins/docker
+  settings:
+    repo: rain123473/gcloud-helm
+    dockerfile: Dockerfile
+    auto_tag: true
+    purge: true
+    username:
+        from_secret: docker_account
+    password:
+        from_secret: docker_password
